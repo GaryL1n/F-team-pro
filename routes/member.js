@@ -131,7 +131,9 @@ router.post("/register", upload.none(), async (req, res) => {
   const hashpassword = bcrypt.hashSync(password);
 
   const sql =
-    "INSERT INTO `member`(`mem_name`,`mem_nickname`,`mem_level`,`mem_account`,`mem_password`, `mem_email`, `mem_mobile`, `mem_birthday`, `mem_address`, `mem_avatar`, `mem_bollen`, `hash`, `verify`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?)";
+    "INSERT INTO `member`(`mem_name`,`mem_nickname`,`mem_level`,`mem_account`,`mem_password`, `mem_email`, `mem_mobile`, `mem_birthday`, `mem_address`, `mem_avatar`, `mem_bollen`, `hash`, `verify`, `google_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?, ?)";
+
+  const avatarURL = 'http://localhost:3000/avatar/' + avatar;
 
   // 把註冊資料存進資料庫 verify預設給off是為了讓信箱驗證
   const [result] = await db.query(sql, [
@@ -144,9 +146,10 @@ router.post("/register", upload.none(), async (req, res) => {
     mobile,
     birthday,
     address,
-    avatar,
+    avatarURL,
     userHash,
     "off",
+    '',
   ]);
 
   output.success = true;
@@ -254,10 +257,6 @@ router.post("/login", upload.none(), async (req, res) => {
 
   output.success = true;
   output.info = {
-    mem_account,
-    mem_nickname,
-    new: output.new,
-    mem_avatar,
     grade: output.grade,
   };
 
@@ -311,7 +310,7 @@ router.put("/edit", upload.none(), async (req, res) => {
     nickname: Joi.any(),
     email: Joi.string().email().required(),
     mobile: Joi.any(),
-    account: Joi.string().required(),
+    account: Joi.any(),
     //可以是任何類型
     birthday: Joi.any(),
     address: Joi.any(),
@@ -336,6 +335,14 @@ router.put("/edit", upload.none(), async (req, res) => {
   }
   if (!req.body.address) {
     req.body.address = "";
+  }
+  if (!req.body.account) {
+    req.body.account = "";
+  }
+
+  // console.log(req.body.birthday); 失效日期
+  if (req.body.birthday==='Invalid date') {
+    req.body.birthday = null;
   }
 
   const { name, nickname, account, email, mobile, birthday, address } =

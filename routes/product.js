@@ -3,6 +3,7 @@ const express = require("express");
 const db = require("../modules/connect_db");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+const { exit } = require("process");
 
 // 全部商品
 router.get("/", async (req, res) => {
@@ -94,7 +95,7 @@ router.get("/", async (req, res) => {
   }
   // console.log("req.query==", req.query);
 
-  console.log("sql02==", sql02);
+  // console.log("sql02==", sql02);
 
   // 限制商品有幾筆
   let sql04 = ` ORDER BY ${orderfield} ${sort} LIMIT ${
@@ -104,7 +105,7 @@ router.get("/", async (req, res) => {
   let [r2] = await db.query(sql02 + sql04);
   output.rows = r2;
 
-  console.log("compSQL==", sql02 + sql04);
+  // console.log("compSQL==", sql02 + sql04);
 
   // 拿到總數量
   let [r3] = await db.query(sql02);
@@ -189,15 +190,21 @@ router.get("/favoriteCount", async (req, res) => {
 
 // 比對該會員收藏哪些商品
 router.get("/whoFavorites", async (req, res) => {
-  const sql =
-    "SELECT product.sid FROM product LEFT JOIN favorite ON product.sid = favorite.favoriteId WHERE 1=1 AND favorite.memId = ?";
-  const [r1] = await db.query(sql, [res.locals.user.sid]);
-  const r2 = [];
-  for (let i = 0; i < r1.length; i++) {
-    r2.push(r1[i].sid);
+  // 沒有登入會員拿不到token，也能看到商品資訊
+  if (res.locals.user === null) {
+    return;
+    exit();
+  } else {
+    const sql =
+      "SELECT product.sid FROM product LEFT JOIN favorite ON product.sid = favorite.favoriteId WHERE 1=1 AND favorite.memId = ?";
+    const [r1] = await db.query(sql, [res.locals.user.sid]);
+    const r2 = [];
+    for (let i = 0; i < r1.length; i++) {
+      r2.push(r1[i].sid);
+    }
+    // console.log("sql==", sql);
+    res.json(r2);
   }
-  // console.log("sql==", sql);
-  res.json(r2);
 });
 
 // ---------------------------------------------------------------------------------------
@@ -238,15 +245,13 @@ router.get("/priceHistory/:productId", async (req, res) => {
 
 // 拿到該商品的細節資訊
 router.get("/:productId", async (req, res) => {
-  if (req.params.productId != null) {
-    let sql =
-      "SELECT * FROM `product` WHERE 1=1 and sid = " + req.params.productId;
-    const [product] = await db.query(sql);
+  let sql =
+    "SELECT * FROM `product` WHERE 1=1 and sid = " + req.params.productId;
+  const [product] = await db.query(sql);
 
-    if (product.length > 0) {
-      // console.log(product[0]);
-      res.json(product[0]);
-    }
+  if (product.length > 0) {
+    // console.log(product[0]);
+    res.json(product[0]);
   }
 });
 

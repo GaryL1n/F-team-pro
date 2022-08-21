@@ -2,9 +2,9 @@
 -- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- 主機： localhost
--- 產生時間： 2022 年 08 月 18 日 23:21
--- 伺服器版本： 10.4.21-MariaDB
+-- 主機： 127.0.0.1
+-- 產生時間： 2022-08-21 14:32:31
+-- 伺服器版本： 10.4.24-MariaDB
 -- PHP 版本： 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -236,7 +236,11 @@ INSERT INTO `cus_message` (`id`, `mes_cusproduct_id`, `mes_member_id`, `stars`, 
 (27, '7', '1596', '✶✶✶', '好看喔', '2022-07-01'),
 (28, '7', '1596', '✶✶', '好看喔', '2022-07-05'),
 (29, '7', '1596', '✶✶✶✶✶', '好看喔', '2022-07-06'),
-(30, '7', '1582', '✶✶✶✶', '有夠好看', '2022-08-23');
+(30, '7', '1582', '✶✶✶✶', '有夠好看', '2022-08-23'),
+(31, '5', '1590', '✶✶✶✶✶', 'COOL!!!!', '2022-08-21'),
+(32, '5', '1587', '✶✶✶✶', 'LOVE THIS', '2022-08-21'),
+(33, '5', '1588', '✶✶✶✶✶', 'SO COOL', '2022-08-21'),
+(34, '11', '1584', '✶✶✶', '!', '2022-08-21');
 
 -- --------------------------------------------------------
 
@@ -324,9 +328,9 @@ INSERT INTO `lesson` (`sid`, `name`, `dance_id`, `duringtime_begin`, `duringtime
 (2, 'Collapse - Eminem / Baiba Klints', 1, '2022-09-26', '2022-10-26', 8, 2700, 1, '忠孝館', 0),
 (3, 'Easy Dance Routine ', 1, '2022-10-27', '2022-11-27', 8, 2500, 1, '忠孝館', 0),
 (4, 'Salute - Competition Dance', 1, '2022-11-28', '2022-12-28', 8, 2700, 1, '忠孝館', 8),
-(5, 'Key Glock - Ambition For Cash\r\n', 1, '2022-08-25', '2022-09-25', 8, 3000, 2, '板橋民生旗艦館', 8),
+(5, 'Key Glock - Ambition For Cash\r\n', 1, '2022-08-25', '2022-09-25', 8, 3000, 2, '板橋民生旗艦館', 7),
 (6, 'Collapse - Eminem / Baiba Klints', 1, '2022-09-26', '2022-10-26', 7, 2700, 2, '板橋民生旗艦館', 8),
-(7, 'Easy Dance Routine ', 1, '2022-10-27', '2022-11-27', 6, 2500, 2, '板橋民生旗艦館', 8),
+(7, 'Easy Dance Routine ', 1, '2022-10-27', '2022-11-27', 6, 2500, 2, '板橋民生旗艦館', 7),
 (8, 'Salute - Competition Dance', 1, '2022-11-28', '2022-12-28', 8, 2700, 2, '板橋民生旗艦館', 8),
 (9, 'Key Glock - Ambition For Cash', 1, '2022-08-25', '2022-09-25', 8, 3000, 3, '台中精誠館', 7),
 (10, 'Collapse - Eminem / Baiba Klints', 1, '2022-09-26', '2022-10-26', 8, 2700, 3, '台中精誠館', 8),
@@ -441,7 +445,7 @@ INSERT INTO `member` (`sid`, `mem_name`, `mem_nickname`, `mem_level`, `mem_accou
 (1564, 'lazy', '', '平民', 'lazy', '$2a$10$z4W45yYBjsFtPjwSYAe.Xuj7sa6fWSHdjGwRawBLCkdFWq/tQzIOy', 'lazy@gmail.com', '', NULL, '', 'http://localhost:3000/avatar/540ba730-d098-4995-bd87-f27e7e2ee54b.jpg', '2022-08-05 17:49:12', 1, '75036', 'on', ''),
 (1582, '漩渦鳴人', '', '平民', 'aaa', '$2a$10$ZvH6KpuzBSoHAWjUY/4c/uJ03Gxf0j87yrw5EH8kEPS40NBOyCgA2', 'aaa@gmail.com', '', NULL, '', 'http://localhost:3000/avatar/9d4336cf-da44-4d5b-9039-cb755fa13dda.jpg', '2022-08-12 13:14:58', 1, '61737', 'on', ''),
 (1583, '春野櫻', '', '平民', 'bbb', '$2a$10$bb41F2OhRovujrX3Z8CjDeyH99utXbi7tE9qEPk2qjgocUWj1kMIm', 'bbb@gmail.com', '', NULL, '', 'http://localhost:3000/avatar/b6885372-d32d-47bc-8be3-dc38e1683222.jpg', '2022-08-12 13:15:37', 1, '21694', 'on', ''),
-(1584, '卡卡西', '', '平民', 'ccc', '$2a$10$bLjNghKvtVERGaJP/NkGiewxcELgwlLiYqRhb7oZzSS4WU6kxXMoS', 'ccc@gmail.com', '', NULL, '', 'http://localhost:3000/avatar/be4a9f45-d328-45dd-aa13-988e470428a7.jpg', '2022-08-12 13:16:04', 1, '824', 'on', ''),
+(1584, '卡卡西', '', '平民', 'ccc', '$2a$10$bLjNghKvtVERGaJP/NkGiewxcELgwlLiYqRhb7oZzSS4WU6kxXMoS', 'ccc@gmail.com', '0972556342', NULL, '', 'http://localhost:3000/avatar/be4a9f45-d328-45dd-aa13-988e470428a7.jpg', '2022-08-12 13:16:04', 1, '824', 'on', ''),
 (1585, '大和', '', '平民', 'ddd', '$2a$10$FVYylLanF/8gm53e5XpT6uHFVqGgU9.h9kaNybtCGhuh.SlZx69v6', 'ddd@gmail.com', '', NULL, '', 'http://localhost:3000/avatar/50cf5c1c-7c91-410b-a0a2-0556cec51825.jpg', '2022-08-12 13:16:27', 1, '44487', 'on', ''),
 (1586, '奈良鹿丸', '', '平民', 'eee', '$2a$10$qmAZe84in7xpFgUdQAoI2.KVJOxrVtr8eYDO9qbKDGD2KWkXwPbCm', 'eee@gmail.com', '', NULL, '', 'http://localhost:3000/avatar/357e4fa8-4d15-46ad-993d-119d81395a26.jpg', '2022-08-12 13:16:55', 1, '53795', 'on', ''),
 (1587, '山中井野', '', '平民', 'fff', '$2a$10$WcRUDBQSRV0jeOi89/1nLuMw2uMiK9UiWSF8n9X9YEGIshrWuZCVC', 'fff@gmail.com', '', NULL, '', 'http://localhost:3000/avatar/739b9064-7630-43b8-bc4f-9006856f3a2e.jpg', '2022-08-12 13:17:22', 1, '75542', 'on', ''),
@@ -564,7 +568,11 @@ INSERT INTO `orders` (`sid`, `member_sid`, `recipient`, `email`, `address`, `shi
 (202200224, 1590, '日向雛田', 'iii@gmail.com', '新北市板橋區大庭門市', 'pickSelf', 'cash', 28000, '2022-08-18 15:31:19'),
 (202200225, 1560, 'mary', 'mary@gmail.com', '台北市松山區上弘門市', 'pickSelf', 'cash', 14200, '2022-08-18 15:50:44'),
 (202200226, 1560, 'mary', 'mary@gmail.com', '基隆市仁愛區仁愛路5號', 'toHome', 'cash', 14899, '2022-08-18 15:51:14'),
-(202200227, 1560, 'mary', 'mary@gmail.com', '基隆市信義區信義路2號', 'toHome', 'credit', 20798, '2022-08-18 15:52:32');
+(202200227, 1560, 'mary', 'mary@gmail.com', '基隆市信義區信義路2號', 'toHome', 'credit', 20798, '2022-08-18 15:52:32'),
+(202200228, 1590, '日向雛田', 'iii@gmail.com', '雲林縣北港鎮dfghdfghdfghdgfh', 'toHome', 'cash', 3780, '2022-08-21 14:10:18'),
+(202200229, 1584, '卡卡西', 'ccc@gmail.com', '台北市大安區大敦門市', 'pickSelf', 'cash', 13100, '2022-08-21 14:17:54'),
+(202200230, 1584, '卡卡西', 'ccc@gmail.com', '台北市中正區千成門市', 'pickSelf', 'cash', 20978, '2022-08-21 14:18:37'),
+(202200231, 1584, '卡卡西', 'ccc@gmail.com', '台北市大安區大信門市', 'pickSelf', 'credit', 12100, '2022-08-21 14:19:23');
 
 -- --------------------------------------------------------
 
@@ -642,7 +650,16 @@ INSERT INTO `order_details` (`sid`, `order_id`, `member_id`, `item_id`, `item_ty
 (55, 202200226, 1560, 5, 'product', 1, 7499),
 (56, 202200227, 1560, 2, 'product', 1, 6300),
 (57, 202200227, 1560, 5, 'product', 1, 7499),
-(58, 202200227, 1560, 8, 'product', 1, 6999);
+(58, 202200227, 1560, 8, 'product', 1, 6999),
+(59, 202200228, 1590, 1, 'custom', 1, 3780),
+(60, 202200229, 1584, 1, 'product', 1, 6800),
+(61, 202200229, 1584, 2, 'product', 1, 6300),
+(62, 202200230, 1584, 4, 'product', 1, 7499),
+(63, 202200230, 1584, 7, 'product', 1, 5999),
+(64, 202200230, 1584, 10, 'product', 1, 7480),
+(65, 202200231, 1584, 6, 'product', 1, 6600),
+(66, 202200231, 1584, 5, 'lesson', 1, 3000),
+(67, 202200231, 1584, 7, 'lesson', 1, 2500);
 
 -- --------------------------------------------------------
 
@@ -932,13 +949,13 @@ ALTER TABLE `admin`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=310;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `custom`
 --
 ALTER TABLE `custom`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cus_chat`
@@ -956,7 +973,7 @@ ALTER TABLE `cus_like`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cus_message`
 --
 ALTER TABLE `cus_message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `dance_category`
@@ -1004,13 +1021,13 @@ ALTER TABLE `news`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `sid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202200228;
+  MODIFY `sid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202200232;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `teacher_category`
